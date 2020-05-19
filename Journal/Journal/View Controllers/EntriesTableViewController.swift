@@ -2,14 +2,34 @@
 //  EntriesTableViewController.swift
 //  Journal
 //
-//  Created by Bling Morley on 5/18/20.
+//  Created by Cody Morley on 5/18/20.
 //  Copyright © 2020 Cody Morley. All rights reserved.
 //
 
 import UIKit
+import CoreData
 
 class EntriesTableViewController: UITableViewController {
-
+    //MARK: - Properties -
+     var entries: [Entry] {
+           let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+           let context = CoreDataStack.shared.mainContext
+           do {
+               return try context.fetch(fetchRequest)
+           } catch {
+               NSLog("Error fetching entries: \(error)")
+               return []
+           }
+       }
+    
+    
+    
+    //MARK: - Life Cycles -
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,18 +49,19 @@ class EntriesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return entries.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: EntryTableViewCell.reuseIdentifier, for: indexPath) as? EntryTableViewCell else { fatalError("Could not dequeue cell of type \(EntryTableViewCell.reuseIdentifier)") }
 
         // Configure the cell...
+        cell.entry = entries[indexPath.row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -11,6 +11,8 @@ import CoreData
 
 class EntryTableViewCell: UITableViewCell {
     //MARK: - Properties -
+    static let reuseIdentifier = "EntryCell"
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var bodyTextPreviewLabel: UILabel!
@@ -20,12 +22,8 @@ class EntryTableViewCell: UITableViewCell {
             updateViews()
         }
     }
-
     
-    
-    
-    
-    //MARK: - Mathods -
+    //MARK: - Methods -
     private func updateViews() {
         guard let entry = entry else { return }
         
