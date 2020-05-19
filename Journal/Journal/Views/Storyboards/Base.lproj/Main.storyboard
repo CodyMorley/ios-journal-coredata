@@ -18,15 +18,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DUS-Sp-siQ">
                                 <rect key="frame" x="0.0" y="88" width="414" height="591.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Journal Entry Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lcd-3R-CTH">
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Journal Entry Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lcd-3R-CTH">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Pm-5p-05C">
+                                        <rect key="frame" x="0.0" y="49" width="414" height="32"/>
+                                        <segments>
+                                            <segment title="😁"/>
+                                            <segment title="😞"/>
+                                            <segment title="🤬"/>
+                                        </segments>
+                                    </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kif-EC-gyU">
-                                        <rect key="frame" x="0.0" y="49" width="414" height="542.5"/>
+                                        <rect key="frame" x="0.0" y="95" width="414" height="496.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Oz-rd-ohY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Oz-rd-ohY">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -40,7 +48,7 @@
                                                 </constraints>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HF3-2b-A1S">
-                                                <rect key="frame" x="0.0" y="38.5" width="414" height="504"/>
+                                                <rect key="frame" x="0.0" y="38.5" width="414" height="458"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -59,7 +67,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="lcd-3R-CTH" secondAttribute="trailing" id="SXz-SH-DQn"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Pm-5p-05C" secondAttribute="trailing" id="fGw-XP-P2F"/>
                                     <constraint firstAttribute="trailing" secondItem="kif-EC-gyU" secondAttribute="trailing" id="fiF-s6-FRZ"/>
+                                    <constraint firstItem="3Pm-5p-05C" firstAttribute="leading" secondItem="DUS-Sp-siQ" secondAttribute="leading" id="qFl-0c-uFe"/>
                                     <constraint firstItem="kif-EC-gyU" firstAttribute="leading" secondItem="DUS-Sp-siQ" secondAttribute="leading" id="siF-95-4yh"/>
                                     <constraint firstItem="lcd-3R-CTH" firstAttribute="leading" secondItem="DUS-Sp-siQ" secondAttribute="leading" id="wjN-V8-Q4F"/>
                                 </constraints>
@@ -88,6 +98,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bodyTextField" destination="HF3-2b-A1S" id="Uut-W6-YUD"/>
+                        <outlet property="moodSegmentedControl" destination="3Pm-5p-05C" id="q12-Ad-whm"/>
                         <outlet property="titleTextField" destination="lcd-3R-CTH" id="7vJ-As-bpa"/>
                     </connections>
                 </viewController>

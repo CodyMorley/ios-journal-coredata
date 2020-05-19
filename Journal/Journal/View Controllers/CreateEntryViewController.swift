@@ -12,6 +12,7 @@ class CreateEntryViewController: UIViewController {
     //MARK: - Properties -
     /// Outlets
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var moodSegmentedControl: UISegmentedControl!
     @IBOutlet weak var bodyTextField: UITextView!
     
     
