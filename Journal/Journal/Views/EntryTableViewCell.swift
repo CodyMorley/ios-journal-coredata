@@ -7,18 +7,31 @@
 //
 
 import UIKit
+import CoreData
 
 class EntryTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    //MARK: - Properties -
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateTimeLabel: UILabel!
+    @IBOutlet weak var bodyTextPreviewLabel: UILabel!
+    
+    var entry: Entry? = {
+        didSet{
+            updateViews()
+        }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    
+    
+    
+    //MARK: - Mathods -
+    private func updateViews() {
+        guard let entry = entry else { return }
+        
+        titleLabel.text = entry.title
+        dateTimeLabel.text = String(entry.timestamp)
+        bodyTextPreviewLabel.text = entry.bodyText
     }
 
 }

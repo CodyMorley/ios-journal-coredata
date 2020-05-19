@@ -144,6 +144,11 @@
                                         <constraint firstItem="EyV-GV-c3L" firstAttribute="leading" secondItem="5vp-ho-jCW" secondAttribute="leadingMargin" id="fGN-JA-64n"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bodyTextPreviewLabel" destination="c6q-gR-qeZ" id="F6p-kD-hSq"/>
+                                    <outlet property="dateTimeLabel" destination="Vbh-Xe-XbX" id="b7V-U9-WAJ"/>
+                                    <outlet property="titleLabel" destination="KX2-jX-sdu" id="hzl-vg-O8I"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
