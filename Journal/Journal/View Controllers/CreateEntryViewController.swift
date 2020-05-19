@@ -9,12 +9,39 @@
 import UIKit
 
 class CreateEntryViewController: UIViewController {
-
+    //MARK: - Properties -
+    /// Outlets
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var bodyTextField: UITextView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    
+    //MARK: - Actions -
+    @IBAction func cancel(_ sender: Any) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func save(_ sender: Any) {
+        guard let title = titleTextField.text, !title.isEmpty else { return }
+        
+        let body = bodyTextField.text
+        
+        Entry(title: title,
+              bodyText: body)
+        
+        do {
+            try CoreDataStack.shared.mainContext.save()
+            navigationController?.dismiss(animated: true, completion: nil)
+        } catch {
+            NSLog("Error saving managed object context, entry was note saved: \(error) \(error.localizedDescription)")
+        }
+    }
+    
+    
     
 
     /*

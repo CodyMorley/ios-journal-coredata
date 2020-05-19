@@ -16,7 +16,7 @@ extension Entry {
     @discardableResult convenience init(title: String,
                                         bodyText: String? = nil,
                                         timeStamp: Date = Date(),
-                                        identifier: String,
+                                        identifier: String = UUID().uuidString,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(context: context)

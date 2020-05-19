@@ -75,9 +75,21 @@
                         <viewLayoutGuide key="safeArea" id="ilC-CM-X5o"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Entry" id="eAO-14-A5f">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="mE8-8S-zKs"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="L0y-a8-KuU"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="mE8-8S-zKs">
+                            <connections>
+                                <action selector="cancel:" destination="ymH-8O-6xc" id="LqJ-Mj-Ci5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="L0y-a8-KuU">
+                            <connections>
+                                <action selector="save:" destination="ymH-8O-6xc" id="zxn-aP-dhm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bodyTextField" destination="HF3-2b-A1S" id="Uut-W6-YUD"/>
+                        <outlet property="titleTextField" destination="lcd-3R-CTH" id="7vJ-As-bpa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HzW-Mf-zbd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

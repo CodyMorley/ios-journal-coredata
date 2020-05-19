@@ -15,8 +15,8 @@ class EntryTableViewCell: UITableViewCell {
     @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var bodyTextPreviewLabel: UILabel!
     
-    var entry: Entry? = {
-        didSet{
+    var entry: Entry? {
+        didSet {
             updateViews()
         }
     }
@@ -30,7 +30,7 @@ class EntryTableViewCell: UITableViewCell {
         guard let entry = entry else { return }
         
         titleLabel.text = entry.title
-        dateTimeLabel.text = String(entry.timestamp)
+        dateTimeLabel.text = entry.timeStamp?.description
         bodyTextPreviewLabel.text = entry.bodyText
     }
 
