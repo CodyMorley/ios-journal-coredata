@@ -50,7 +50,6 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HF3-2b-A1S">
                                                 <rect key="frame" x="0.0" y="38.5" width="414" height="458"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -97,14 +96,96 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bodyTextField" destination="HF3-2b-A1S" id="Uut-W6-YUD"/>
-                        <outlet property="moodSegmentedControl" destination="3Pm-5p-05C" id="q12-Ad-whm"/>
-                        <outlet property="titleTextField" destination="lcd-3R-CTH" id="7vJ-As-bpa"/>
+                        <outlet property="bodyTextField" destination="HF3-2b-A1S" id="4cw-tA-xZy"/>
+                        <outlet property="moodSegmentedControl" destination="3Pm-5p-05C" id="EvX-sr-SRQ"/>
+                        <outlet property="titleTextField" destination="lcd-3R-CTH" id="neh-76-7uY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HzW-Mf-zbd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1837.68115942029" y="-253.125"/>
+        </scene>
+        <!--Entry Details-->
+        <scene sceneID="lBz-gd-xPT">
+            <objects>
+                <viewController id="HhP-Jk-zsq" customClass="EntryDetailViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HCE-Dq-kcB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="9jn-3z-sHF">
+                                <rect key="frame" x="0.0" y="160" width="414" height="591.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Journal Entry Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r3K-lV-4bJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vRP-ht-AoL">
+                                        <rect key="frame" x="0.0" y="49" width="414" height="32"/>
+                                        <segments>
+                                            <segment title="😁"/>
+                                            <segment title="😞"/>
+                                            <segment title="🤬"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hi5-1L-ujg">
+                                        <rect key="frame" x="0.0" y="95" width="414" height="496.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Entry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Non-Dl-2IM">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJj-zR-pfS">
+                                                <rect key="frame" x="0.0" y="28.5" width="414" height="2"/>
+                                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="lYj-WE-heJ"/>
+                                                </constraints>
+                                            </view>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cwx-Ve-G7z">
+                                                <rect key="frame" x="0.0" y="38.5" width="414" height="458"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="IJj-zR-pfS" firstAttribute="leading" secondItem="Hi5-1L-ujg" secondAttribute="leading" id="0Fx-6C-Xiu"/>
+                                            <constraint firstAttribute="trailing" secondItem="IJj-zR-pfS" secondAttribute="trailing" id="KsV-bS-n0r"/>
+                                            <constraint firstItem="Cwx-Ve-G7z" firstAttribute="leading" secondItem="Hi5-1L-ujg" secondAttribute="leading" id="WBE-Wn-YM5"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cwx-Ve-G7z" secondAttribute="trailing" id="iJl-Hv-8lC"/>
+                                            <constraint firstItem="Non-Dl-2IM" firstAttribute="leading" secondItem="Hi5-1L-ujg" secondAttribute="leading" id="tUo-QG-6vG"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vRP-ht-AoL" secondAttribute="trailing" id="0tU-QG-ATY"/>
+                                    <constraint firstItem="vRP-ht-AoL" firstAttribute="leading" secondItem="9jn-3z-sHF" secondAttribute="leading" id="5uu-8G-xU9"/>
+                                    <constraint firstItem="Hi5-1L-ujg" firstAttribute="leading" secondItem="9jn-3z-sHF" secondAttribute="leading" id="7vC-tr-Yj9"/>
+                                    <constraint firstAttribute="trailing" secondItem="r3K-lV-4bJ" secondAttribute="trailing" id="n0b-R5-P0u"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hi5-1L-ujg" secondAttribute="trailing" id="nG3-jF-Kbj"/>
+                                    <constraint firstItem="r3K-lV-4bJ" firstAttribute="leading" secondItem="9jn-3z-sHF" secondAttribute="leading" id="zpV-E0-xQK"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9jn-3z-sHF" firstAttribute="height" secondItem="HCE-Dq-kcB" secondAttribute="height" multiplier="0.66" id="1IO-PY-eJA"/>
+                            <constraint firstItem="9jn-3z-sHF" firstAttribute="top" secondItem="62y-OP-m4e" secondAttribute="top" constant="20" id="Nxm-iW-Rcs"/>
+                            <constraint firstItem="62y-OP-m4e" firstAttribute="trailing" secondItem="9jn-3z-sHF" secondAttribute="trailing" id="up4-yN-cOI"/>
+                            <constraint firstItem="9jn-3z-sHF" firstAttribute="leading" secondItem="62y-OP-m4e" secondAttribute="leading" id="vLi-72-4EV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="62y-OP-m4e"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Entry Details" id="J7e-UM-1iE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NHR-BX-UlH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1838" y="421"/>
         </scene>
         <!--Journal-->
         <scene sceneID="bTp-XU-NgN">
@@ -171,6 +252,7 @@
                                     <outlet property="bodyTextPreviewLabel" destination="c6q-gR-qeZ" id="F6p-kD-hSq"/>
                                     <outlet property="dateTimeLabel" destination="Vbh-Xe-XbX" id="b7V-U9-WAJ"/>
                                     <outlet property="titleLabel" destination="KX2-jX-sdu" id="hzl-vg-O8I"/>
+                                    <segue destination="HhP-Jk-zsq" kind="show" identifier="EntryDetailSegue" id="3VX-45-9Je"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

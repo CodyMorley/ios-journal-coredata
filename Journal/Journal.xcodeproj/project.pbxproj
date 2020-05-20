@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E0908472475D3850079ED38 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0908462475D3850079ED38 /* EntryDetailViewController.swift */; };
 		5E8FE582247339EA00C650D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8FE581247339EA00C650D6 /* AppDelegate.swift */; };
 		5E8FE584247339EA00C650D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8FE583247339EA00C650D6 /* SceneDelegate.swift */; };
 		5E8FE589247339EA00C650D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E8FE587247339EA00C650D6 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		5E0908402474968F0079ED38 /* Journal 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Journal 2.xcdatamodel"; sourceTree = "<group>"; };
+		5E0908462475D3850079ED38 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		5E8FE57E247339EA00C650D6 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E8FE581247339EA00C650D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E8FE583247339EA00C650D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				5E8FE59C24733AA400C650D6 /* CreateEntryViewController.swift */,
 				5E8FE59E24733AE900C650D6 /* EntriesTableViewController.swift */,
+				5E0908462475D3850079ED38 /* EntryDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				5E8FE59D24733AA400C650D6 /* CreateEntryViewController.swift in Sources */,
 				5E8FE584247339EA00C650D6 /* SceneDelegate.swift in Sources */,
 				5E8FE5A624733B6C00C650D6 /* Entry+Convenience.swift in Sources */,
+				5E0908472475D3850079ED38 /* EntryDetailViewController.swift in Sources */,
 				5E8FE5A924733BB100C650D6 /* Journal.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
