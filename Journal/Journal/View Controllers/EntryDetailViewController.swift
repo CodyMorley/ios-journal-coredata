@@ -31,6 +31,11 @@ class EntryDetailViewController: UIViewController {
         
         if wasEdited {
             updateEntry()
+            do{
+                try CoreDataStack.shared.mainContext.save()
+            } catch {
+                NSLog("Error saving managed object context.")
+            }
         }
     }
     
