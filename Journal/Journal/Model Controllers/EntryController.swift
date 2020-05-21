@@ -96,9 +96,37 @@ class EntryController {
     }
     
     func updateEntries(with representations: [EntryRepresentation]) {
-        let entryFetchIDs = representations.compactMap {}
+        let entryFetchIDs = representations.compactMap { $0.identifier }
+        let representationsByID = Dictionary(uniqueKeysWithValues: zip(entryFetchIDs, representations))
+        var entriesToCreate = representationsByID
         
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "identifier IN %@", entryFetchIDs)
+        
+        let context = CoreDataStack.shared.mainContext
+        
+        do {
+            let existingEntries = try context.fetch(fetchRequest)
+            for entry in existingEntries {
+                guard let identifier = entry.identifier,
+                    let representation = representationsByID[identifier] else {
+                        continue
+                }
+                
+                self.update(entry: entry, representation: representation)
+                entriesToCreate.removeValue(forKey: identifier)
+                
+                for representation in entriesToCreate.values {
+                    Entry(representation: representation, context: context)
+                }
+                
+                try context.save()
+            }
+        } catch {
+            NSLog("Error fetching entries from extrenal database: \(error) \(error.localizedDescription)")
+        }
+        
+        
         
     }
     
