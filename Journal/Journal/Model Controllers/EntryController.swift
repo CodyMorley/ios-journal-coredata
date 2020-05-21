@@ -37,6 +37,11 @@ class EntryController {
     private lazy var jsonDecoder = JSONDecoder()
     private lazy var jsonEncoder = JSONEncoder()
     
+    //MARK: - Initializers -
+    init() {
+        fetchEntriesFromServer()
+    }
+    
     
     //MARK: - Actions -
     func sendEntryToServer(entry: Entry, completion: @escaping CompletionHandler = { _ in }) {
@@ -144,11 +149,15 @@ class EntryController {
             }
             
             do {
-                let fetchedEntries = try jsonDecoder.decode([String : EntryRepresentation].self, from: data)
+                let fetchedEntries = Array(try self.jsonDecoder.decode([String : EntryRepresentation].self, from: data).values)
+                self.updateEntries(with: fetchedEntries)
+                completion(.success(true))
             } catch {
-                
+                NSLog("Error decoding fetched entries: \(error) \(error.localizedDescription)")
+                completion(.failure(.noDecode))
+                return
             }
-        }
+        }.resume()
     }
     
     
