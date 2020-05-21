@@ -125,9 +125,30 @@ class EntryController {
         } catch {
             NSLog("Error fetching entries from extrenal database: \(error) \(error.localizedDescription)")
         }
+    }
+    
+    func fetchEntriesFromServer(completion: @escaping CompletionHandler = { _ in }) {
+        let fetchURL = baseURL.appendingPathExtension("json")
         
-        
-        
+        URLSession.shared.dataTask(with: fetchURL) { data, _, error in
+            if let error = error {
+                NSLog("Error fetching data: \(error) \(error.localizedDescription)")
+                completion(.failure(.otherError))
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Error fetching request: no data returned from firebase.")
+                completion(.failure(.noData))
+                return
+            }
+            
+            do {
+                let fetchedEntries = try jsonDecoder.decode([String : EntryRepresentation].self, from: data)
+            } catch {
+                
+            }
+        }
     }
     
     
