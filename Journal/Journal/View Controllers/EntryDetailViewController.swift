@@ -34,7 +34,7 @@ class EntryDetailViewController: UIViewController {
             do{
                 try CoreDataStack.shared.mainContext.save()
             } catch {
-                NSLog("Error saving managed object context.")
+                NSLog("Error saving managed object context: \(error)")
             }
         }
     }

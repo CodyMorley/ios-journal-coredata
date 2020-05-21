@@ -74,6 +74,16 @@ class EntriesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "EntryDetailSegue" {
+            if let detailVC = segue.destination as? EntryDetailViewController {
+               //inject entry?
+            }
+        } else if segue.identifier == "CreateEntrySegue" {
+            if let navC = segue.destination as? UINavigationController,
+                let createEntryVC = navC.viewControllers.first as? CreateEntryViewController {
+                //inject controller
+            }
+        }
     }
 }
 
