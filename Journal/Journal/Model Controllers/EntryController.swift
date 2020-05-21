@@ -95,7 +95,12 @@ class EntryController {
         }.resume()
     }
     
-    
+    func updateEntries(with representations: [EntryRepresentation]) {
+        let entryFetchIDs = representations.compactMap {}
+        
+        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        
+    }
     
     
     //MARK: - Methods -
