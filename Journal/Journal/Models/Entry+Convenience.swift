@@ -15,9 +15,10 @@ enum Mood: String, CaseIterable {
     case fck = "🤬"
 }
 
+
 extension Entry {
     //MARK: - Properties -
-    var entryRepresentation: EntryRepresentation? {
+    var representation: EntryRepresentation? {
         guard let identifier = identifier,
             let title = title,
             let mood = mood,
@@ -32,6 +33,7 @@ extension Entry {
                                    timeStamp: date,
                                    identifier: identifier)
     }
+    
     
     //MARK: - Convenience Inits -
     @discardableResult convenience init(title: String,
@@ -61,5 +63,6 @@ extension Entry {
                   identifier: representation.identifier,
                   context: context)
     }
+    
     
 }

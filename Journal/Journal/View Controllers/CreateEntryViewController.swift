@@ -15,6 +15,7 @@ class CreateEntryViewController: UIViewController {
     @IBOutlet weak var moodSegmentedControl: UISegmentedControl!
     @IBOutlet weak var bodyTextView: UITextView!
     
+    var entryController: EntryController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +34,11 @@ class CreateEntryViewController: UIViewController {
         let moodIndex = moodSegmentedControl.selectedSegmentIndex
         let mood = Mood.allCases[moodIndex]
         
-        Entry(title: title,
-              bodyText: body,
-              mood: mood)
+        let entry = Entry(title: title,
+                          bodyText: body,
+                          mood: mood)
         
+        entryController?.sendEntryToServer(entry: entry)
         do {
             try CoreDataStack.shared.mainContext.save()
             navigationController?.dismiss(animated: true, completion: nil)

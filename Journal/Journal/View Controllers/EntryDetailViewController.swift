@@ -15,6 +15,7 @@ class EntryDetailViewController: UIViewController {
     @IBOutlet weak var moodSegmentedControl: UISegmentedControl!
     @IBOutlet weak var bodyTextView: UITextView!
     
+    var entryController: EntryController?
     var entry: Entry?
     var wasEdited: Bool = false
     
@@ -31,6 +32,9 @@ class EntryDetailViewController: UIViewController {
         
         if wasEdited {
             updateEntry()
+            if let entry = entry {
+                entryController?.sendEntryToServer(entry: entry)
+            }
             do{
                 try CoreDataStack.shared.mainContext.save()
             } catch {

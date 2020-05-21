@@ -29,6 +29,8 @@ class EntriesTableViewController: UITableViewController {
         return frc
     }()
     
+    let entryController = EntryController()
+    
     
     //MARK: - Life Cycles -
     
@@ -56,6 +58,8 @@ class EntriesTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             let entry = fetchedResultsController.object(at: indexPath)
+            
+            entryController.deleteEntryFromServer(entry: entry)
             let context = CoreDataStack.shared.mainContext
             context.delete(entry)
             do {
@@ -76,15 +80,17 @@ class EntriesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "EntryDetailSegue" {
             if let detailVC = segue.destination as? EntryDetailViewController {
-               //inject entry?
+                detailVC.entryController = entryController
             }
         } else if segue.identifier == "CreateEntrySegue" {
             if let navC = segue.destination as? UINavigationController,
                 let createEntryVC = navC.viewControllers.first as? CreateEntryViewController {
-                //inject controller
+                createEntryVC.entryController = entryController
             }
         }
     }
+    
+    
 }
 
 
