@@ -182,6 +182,11 @@
                         <viewLayoutGuide key="safeArea" id="62y-OP-m4e"/>
                     </view>
                     <navigationItem key="navigationItem" title="Entry Details" id="J7e-UM-1iE"/>
+                    <connections>
+                        <outlet property="bodyTextView" destination="Cwx-Ve-G7z" id="9gr-Yq-cqn"/>
+                        <outlet property="moodSegmentedControl" destination="vRP-ht-AoL" id="FHR-uG-qcY"/>
+                        <outlet property="titleTextField" destination="r3K-lV-4bJ" id="770-Hz-ojf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHR-BX-UlH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

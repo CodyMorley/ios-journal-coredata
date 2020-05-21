@@ -13,7 +13,7 @@ class CreateEntryViewController: UIViewController {
     /// Outlets
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var moodSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var bodyTextField: UITextView!
+    @IBOutlet weak var bodyTextView: UITextView!
     
     
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class CreateEntryViewController: UIViewController {
     @IBAction func save(_ sender: Any) {
         guard let title = titleTextField.text, !title.isEmpty else { return }
         
-        let body = bodyTextField.text
+        let body = bodyTextView.text
         let moodIndex = moodSegmentedControl.selectedSegmentIndex
         let mood = Mood.allCases[moodIndex]
         
