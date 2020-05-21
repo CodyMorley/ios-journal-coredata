@@ -69,7 +69,7 @@ class EntryController {
     
     func deleteEntryFromServer(entry: Entry, completion: @escaping CompletionHandler = { _ in }) {
         guard let identifier = entry.identifier else {
-            NSLog("Error deleting entry. No Entry ID: \(error) \(error.localizedDescription)")
+            NSLog("Error deleting entry. No Entry ID.")
             completion(.failure(.noId))
             return
         }
@@ -99,7 +99,12 @@ class EntryController {
     
     
     //MARK: - Methods -
-    
+    private func update(entry: Entry, representation: EntryRepresentation) {
+        entry.title = representation.title
+        entry.bodyText = representation.bodyText
+        entry.mood = representation.mood
+        
+    }
     
     
     
