@@ -32,10 +32,6 @@ class EntriesTableViewController: UITableViewController {
     let entryController = EntryController()
     
     
-    //MARK: - Life Cycles -
-    
-    
-    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 1
@@ -60,14 +56,16 @@ class EntriesTableViewController: UITableViewController {
             let entry = fetchedResultsController.object(at: indexPath)
             
             entryController.deleteEntryFromServer(entry: entry)
-            let context = CoreDataStack.shared.mainContext
-            context.delete(entry)
-            do {
-                try context.save()
-                tableView.reloadData()
-            } catch {
-                context.reset()
-                NSLog("Error saving managed object context [deletion failed]: \(error) \(error.localizedDescription)")
+            
+            DispatchQueue.main.async {
+                let context = CoreDataStack.shared.mainContext
+                context.delete(entry)
+                do {
+                    try context.save()
+                } catch {
+                    context.reset()
+                    NSLog("Error saving managed object context [deletion failed]: \(error) \(error.localizedDescription)")
+                }
             }
         }
     }
@@ -147,4 +145,6 @@ extension EntriesTableViewController: NSFetchedResultsControllerDelegate {
             break
         }
     }
+    
+    
 }

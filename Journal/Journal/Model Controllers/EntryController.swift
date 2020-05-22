@@ -37,6 +37,7 @@ class EntryController {
     private lazy var jsonDecoder = JSONDecoder()
     private lazy var jsonEncoder = JSONEncoder()
     
+    
     //MARK: - Initializers -
     init() {
         fetchEntriesFromServer()
@@ -108,27 +109,35 @@ class EntryController {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "identifier IN %@", entryFetchIDs)
         
-        let context = CoreDataStack.shared.mainContext
+        let context = CoreDataStack.shared.container.newBackgroundContext()
+        
+        context.performAndWait {
+            do {
+                let existingEntries = try context.fetch(fetchRequest)
+                for entry in existingEntries {
+                    guard let identifier = entry.identifier,
+                        let representation = representationsByID[identifier] else {
+                            continue
+                    }
+                    
+                    self.update(entry: entry, representation: representation)
+                    entriesToCreate.removeValue(forKey: identifier)
+                    
+                    for representation in entriesToCreate.values {
+                        Entry(representation: representation, context: context)
+                    }
+                }
+            } catch {
+                NSLog("Error fetching entries from extrenal database: \(error) \(error.localizedDescription)")
+                return
+            }
+        }
         
         do {
-            let existingEntries = try context.fetch(fetchRequest)
-            for entry in existingEntries {
-                guard let identifier = entry.identifier,
-                    let representation = representationsByID[identifier] else {
-                        continue
-                }
-                
-                self.update(entry: entry, representation: representation)
-                entriesToCreate.removeValue(forKey: identifier)
-                
-                for representation in entriesToCreate.values {
-                    Entry(representation: representation, context: context)
-                }
-                
-                try context.save()
-            }
+            try CoreDataStack.shared.save(context: context)
         } catch {
-            NSLog("Error fetching entries from extrenal database: \(error) \(error.localizedDescription)")
+            NSLog("Error saving managed object context during update: \(error) \(error.localizedDescription)")
+            return
         }
     }
     
@@ -168,8 +177,6 @@ class EntryController {
         entry.mood = representation.mood
         
     }
-    
-    
     
     
 }

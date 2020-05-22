@@ -21,7 +21,6 @@ class EntryDetailViewController: UIViewController {
     var wasEdited: Bool = false
     
     
-    
     //MARK: - Life Cycles -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +48,6 @@ class EntryDetailViewController: UIViewController {
     }
     
 
-    /*›
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
     //MARK: - Methods -
     private func updateViews() {
         guard let entry = entry else { return }
@@ -99,5 +87,6 @@ class EntryDetailViewController: UIViewController {
         entry.mood = mood
         entry.bodyText = body
     }
+    
 
 }

@@ -23,6 +23,7 @@ class EntryTableViewCell: UITableViewCell {
         }
     }
     
+    
     //MARK: - Methods -
     private func updateViews() {
         guard let entry = entry else { return }
@@ -31,5 +32,6 @@ class EntryTableViewCell: UITableViewCell {
         dateTimeLabel.text = entry.timeStamp?.description
         bodyTextPreviewLabel.text = entry.bodyText
     }
+    
 
 }
