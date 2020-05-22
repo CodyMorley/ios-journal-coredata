@@ -79,8 +79,10 @@ class EntriesTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "EntryDetailSegue" {
-            if let detailVC = segue.destination as? EntryDetailViewController {
+            if let detailVC = segue.destination as? EntryDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
                 detailVC.entryController = entryController
+                detailVC.entry = fetchedResultsController.object(at: indexPath)
             }
         } else if segue.identifier == "CreateEntrySegue" {
             if let navC = segue.destination as? UINavigationController,

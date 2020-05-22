@@ -96,7 +96,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bodyTextField" destination="HF3-2b-A1S" id="4cw-tA-xZy"/>
+                        <outlet property="bodyTextView" destination="HF3-2b-A1S" id="bVf-cF-J4Y"/>
                         <outlet property="moodSegmentedControl" destination="3Pm-5p-05C" id="EvX-sr-SRQ"/>
                         <outlet property="titleTextField" destination="lcd-3R-CTH" id="neh-76-7uY"/>
                     </connections>

@@ -17,13 +17,18 @@ class EntryDetailViewController: UIViewController {
     
     var entryController: EntryController?
     var entry: Entry?
+    
     var wasEdited: Bool = false
+    
+    
     
     //MARK: - Life Cycles -
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.rightBarButtonItem = editButtonItem
+        titleTextField.isUserInteractionEnabled = false
+        bodyTextView.isUserInteractionEnabled = false
+        moodSegmentedControl.isUserInteractionEnabled = false
         updateViews()
     }
     
@@ -75,7 +80,7 @@ class EntryDetailViewController: UIViewController {
         super.setEditing(editing, animated: animated)
         
         if editing {
-            wasEdited = editing
+            wasEdited = true
         }
         titleTextField.isUserInteractionEnabled = editing
         bodyTextView.isUserInteractionEnabled = editing
